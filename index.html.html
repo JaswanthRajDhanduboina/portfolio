@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Jaswanth Raj Dhanduboina – Data Analyst</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Figtree:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F6F2FF; --glass:rgba(255,255,255,.7); --edge:rgba(108,75,216,.16);
+  --ink:#231B3D; --muted:#655A88; --lav:#6C4BD8; --rose:#D6428A; --mint:#0E9F8A;
+  --glow1:rgba(183,156,255,.45); --glow2:rgba(255,158,196,.35); --glow3:rgba(127,231,212,.3);
+  --serif:"Fraunces",Georgia,"Times New Roman",serif;
+  --sans:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0F0B1F; --glass:rgba(32,24,60,.62); --edge:rgba(183,156,255,.2);
+    --ink:#F3EEFF; --muted:#B3A9D1; --lav:#B79CFF; --rose:#FF9EC4; --mint:#7FE7D4;
+    --glow1:rgba(120,84,255,.35); --glow2:rgba(255,92,160,.2); --glow3:rgba(40,200,180,.18); color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0F0B1F; --glass:rgba(32,24,60,.62); --edge:rgba(183,156,255,.2);
+  --ink:#F3EEFF; --muted:#B3A9D1; --lav:#B79CFF; --rose:#FF9EC4; --mint:#7FE7D4;
+  --glow1:rgba(120,84,255,.35); --glow2:rgba(255,92,160,.2); --glow3:rgba(40,200,180,.18); color-scheme:dark;
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1.0625rem/1.65 var(--sans);position:relative;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background:radial-gradient(40rem 32rem at 12% 8%,var(--glow1),transparent 70%),
+             radial-gradient(34rem 30rem at 92% 30%,var(--glow2),transparent 70%),
+             radial-gradient(38rem 30rem at 30% 95%,var(--glow3),transparent 70%)}
+a{color:var(--lav)}
+a:focus-visible{outline:3px solid var(--rose);outline-offset:3px;border-radius:4px}
+.wrap{max-width:64rem;margin:0 auto;padding:0 1.25rem}
+h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.1;margin:0;letter-spacing:-.01em}
+p{margin:0 0 1rem;max-width:60ch}
+.top{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;padding:1.5rem 0}
+.top strong{font-family:var(--serif);font-size:1.25rem;font-weight:600}
+.top nav{display:flex;gap:1.4rem;flex-wrap:wrap}
+.top nav a{color:var(--muted);text-decoration:none;font-weight:500}
+.top nav a:hover{color:var(--ink)}
+
+.hero{display:grid;grid-template-columns:1.1fr 1fr;gap:2.5rem;align-items:center;padding:3rem 0 4.5rem}
+.hero h1{font-size:clamp(2.7rem,7vw,5rem)}
+.hero .lede{font-size:clamp(1.1rem,2.2vw,1.35rem);color:var(--muted);margin:1.5rem 0 2rem;max-width:30rem}
+.links{display:flex;flex-wrap:wrap;gap:.75rem}
+.btn{display:inline-block;padding:.8rem 1.4rem;border-radius:999px;font-weight:700;text-decoration:none;border:1.5px solid var(--edge);color:var(--ink);background:var(--glass);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.btn.main{background:linear-gradient(120deg,var(--lav),var(--rose));border-color:transparent;color:#fff}
+.btn:hover{transform:translateY(-2px)}
+.btn{transition:transform .2s}
+
+.viz{position:relative;border-radius:28px;border:1px solid var(--edge);background:var(--glass);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);padding:1.25rem 1rem .5rem}
+.viz svg{display:block;width:100%;height:auto;overflow:visible}
+.line{fill:none;stroke:url(#lg);stroke-width:4;stroke-linecap:round;stroke-dasharray:1200;stroke-dashoffset:1200;animation:draw 2.4s .3s cubic-bezier(.6,0,.2,1) forwards}
+.area{opacity:0;animation:fade 1.2s 1.6s forwards}
+.dot{opacity:0;animation:fade .6s forwards}
+.chip{position:absolute;padding:.5rem .9rem;border-radius:999px;font-size:.88rem;font-weight:700;background:var(--bg);border:1px solid var(--edge);box-shadow:0 8px 24px rgba(108,75,216,.18);opacity:0;animation:fade .7s forwards}
+.chip i{font-style:normal;color:var(--rose)}
+.c1{left:-6%;top:12%;animation-delay:2.3s}
+.c2{right:-4%;top:34%;animation-delay:2.6s}
+.c3{left:10%;bottom:6%;animation-delay:2.9s}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes fade{to{opacity:1}}
+
+section{padding:3.5rem 0}
+h2{font-size:clamp(2rem,4.5vw,3rem);margin-bottom:1.75rem}
+.glass{border-radius:24px;border:1px solid var(--edge);background:var(--glass);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);padding:1.75rem}
+
+.about{display:grid;grid-template-columns:1fr 1fr;gap:2rem}
+.about p{color:var(--muted)}
+.about p:first-child{color:var(--ink);font-family:var(--serif);font-size:1.45rem;line-height:1.4}
+
+.tl{list-style:none;margin:0;padding:0;position:relative}
+.tl::before{content:"";position:absolute;left:7px;top:.6rem;bottom:.6rem;width:2px;background:linear-gradient(var(--lav),var(--rose),var(--mint))}
+.tl li{position:relative;padding:0 0 2.25rem 2.5rem}
+.tl li:last-child{padding-bottom:0}
+.tl li::before{content:"";position:absolute;left:0;top:.45rem;width:16px;height:16px;border-radius:50%;background:var(--bg);border:3px solid var(--lav)}
+.tl h3{font-size:1.4rem}
+.when{color:var(--rose);font-weight:700;margin:.2rem 0 .6rem;font-size:.98rem}
+.tl ul,.pj ul{margin:0;padding-left:1.15rem;color:var(--muted);max-width:60ch}
+.tl li li,.pj li{margin-bottom:.4rem}
+
+.pj{display:grid;grid-template-columns:12rem 1fr;gap:1.5rem 2rem;margin-bottom:1.5rem;align-items:start}
+.pj:nth-of-type(2){border-color:color-mix(in srgb,var(--rose) 35%,transparent)}
+.pj:nth-of-type(3){border-color:color-mix(in srgb,var(--mint) 40%,transparent)}
+.big{font-family:var(--serif);font-weight:600;font-size:4rem;line-height:1;background:linear-gradient(120deg,var(--lav),var(--rose));-webkit-background-clip:text;background-clip:text;color:transparent}
+.pj:nth-of-type(3) .big{background-image:linear-gradient(120deg,var(--mint),var(--lav))}
+.cap{color:var(--muted);font-size:.95rem;margin-top:.4rem}
+.pj h3{font-size:1.5rem;margin-bottom:.4rem}
+.stack{color:var(--lav);font-weight:700;margin-bottom:.75rem}
+
+.chips{display:flex;flex-wrap:wrap;gap:.5rem}
+.chips span{padding:.4rem .95rem;border-radius:999px;border:1px solid var(--edge);background:var(--glass);font-weight:500;font-size:.97rem}
+.group{margin-bottom:1.5rem}
+.group h3{font-family:var(--sans);font-size:1rem;font-weight:700;color:var(--muted);margin-bottom:.6rem;letter-spacing:0}
+
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(18rem,1fr));gap:1.5rem}
+.two h3{font-size:1.5rem;margin-bottom:1rem}
+.two ul{margin:0;padding-left:1.15rem;color:var(--muted)}
+.two li{margin-bottom:.7rem}
+.two strong{color:var(--ink)}
+
+.contact{text-align:center}
+.contact h2{font-size:clamp(2.2rem,6vw,4rem)}
+.contact p{margin:0 auto 2rem;color:var(--muted)}
+.contact .links{justify-content:center}
+footer{text-align:center;color:var(--muted);font-size:.92rem;padding:1rem 0 3rem}
+
+@media (max-width:48rem){
+  .hero,.about,.pj{grid-template-columns:1fr}
+  .hero{padding-top:1rem}
+  .c1{left:0}.c2{right:0}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .line{animation:none;stroke-dashoffset:0}
+  .area,.dot,.chip{animation:none;opacity:1}
+  .btn{transition:none}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <strong>Jaswanth Raj</strong>
+    <nav aria-label="Sections">
+      <a href="#about">About</a><a href="#work">Experience</a><a href="#projects">Projects</a><a href="#skills">Skills</a><a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+  <div class="hero">
+    <div>
+      <h1>Jaswanth Raj Dhanduboina</h1>
+      <p class="lede">Data analyst who turns messy numbers into clear decisions, using SQL, Power BI and Python.</p>
+      <div class="links">
+        <a class="btn main" href="#projects">See my projects</a>
+        <a class="btn" href="#contact">Get in touch</a>
+      </div>
+    </div>
+    <div class="viz" aria-hidden="true">
+      <svg viewBox="0 0 600 320">
+        <defs>
+          <linearGradient id="lg" x1="0" x2="1"><stop offset="0" stop-color="#7FE7D4"/><stop offset=".5" stop-color="#B79CFF"/><stop offset="1" stop-color="#FF9EC4"/></linearGradient>
+          <linearGradient id="ag" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#B79CFF" stop-opacity=".4"/><stop offset="1" stop-color="#B79CFF" stop-opacity="0"/></linearGradient>
+        </defs>
+        <path class="area" fill="url(#ag)" d="M0,240 C60,220 90,175 140,185 S220,125 270,150 S350,215 395,180 S470,70 540,80 S580,50 600,36 L600,320 L0,320 Z"/>
+        <path class="line" d="M0,240 C60,220 90,175 140,185 S220,125 270,150 S350,215 395,180 S470,70 540,80 S580,50 600,36"/>
+        <circle class="dot" style="animation-delay:1.8s" cx="395" cy="180" r="7" fill="#FF9EC4"/>
+        <circle class="dot" style="animation-delay:2.2s" cx="540" cy="80" r="7" fill="#7FE7D4"/>
+      </svg>
+      <span class="chip c1"><i>22%</i> seasonal dip found</span>
+      <span class="chip c2">Top <i>15%</i> of customers, <i>60%</i> of revenue</span>
+      <span class="chip c3">15+ SQL queries into Power BI</span>
+    </div>
+  </div>
+
+  <section id="about">
+    <h2>About me</h2>
+    <div class="about">
+      <p>I like questions that end in a decision: which products earn the most, where sales slip, who is worth keeping.</p>
+      <div>
+        <p>I recently finished my B.Tech in Computer Science (AI &amp; ML) and trained as a data analyst on real business datasets. SQL and Power BI are my strongest tools, and I use Python for cleaning and exploration.</p>
+        <p>My machine learning background helps when a problem needs forecasting, but I always finish with a recommendation someone can act on.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="work">
+    <h2>Experience</h2>
+    <ol class="tl">
+      <li>
+        <h3>Data Analyst Trainee, Acaders Training Institute</h3>
+        <p class="when">Feb 2026 to Jul 2026, Bangalore</p>
+        <ul>
+          <li>Wrote 15+ optimised SQL queries on a business dataset and delivered the results as interactive Power BI dashboards for non-technical stakeholders.</li>
+          <li>Ran complete analyst workflows: ingestion, cleaning, transformation, exploratory analysis and KPI reporting.</li>
+        </ul>
+      </li>
+      <li>
+        <h3>Generative AI Intern, Codegnan IT Solutions</h3>
+        <p class="when">May 2024 to Jul 2024</p>
+        <ul>
+          <li>Evaluated and benchmarked the outputs of 3 generative AI pipelines in Python.</li>
+          <li>Streamlined internal documentation and evaluation reporting for faster team turnaround.</li>
+        </ul>
+      </li>
+    </ol>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <article class="pj glass">
+      <div><div class="big">22%</div><div class="cap">seasonal sales dip found</div></div>
+      <div>
+        <h3>Sales Performance Analysis Dashboard</h3>
+        <p class="stack">SQL, Python (Pandas), Power BI, Excel</p>
+        <ul>
+          <li>Cleaned and analysed a 10,000-row retail dataset and identified the top 5 revenue-driving products.</li>
+          <li>Built a Power BI dashboard with 6 KPIs on a full ETL pipeline, which removed manual reporting.</li>
+        </ul>
+      </div>
+    </article>
+    <article class="pj glass">
+      <div><div class="big">60%</div><div class="cap">of revenue from the top 15% of customers</div></div>
+      <div>
+        <h3>Customer Segmentation and Revenue Analysis</h3>
+        <p class="stack">MySQL, SQL, Statistical Analysis</p>
+        <ul>
+          <li>Segmented 500+ customers by behaviour, frequency and spend using JOINs, GROUP BY and subqueries.</li>
+          <li>Recommended a data-driven retention strategy based on the findings.</li>
+        </ul>
+      </div>
+    </article>
+    <article class="pj glass">
+      <div><div class="big">4</div><div class="cap">forecasting models compared</div></div>
+      <div>
+        <h3>AI-Driven Smart Energy Optimisation</h3>
+        <p class="stack">Python, Scikit-learn, TensorFlow, LSTM</p>
+        <ul>
+          <li>Built Random Forest, LSTM, Q-Learning and Genetic Algorithm models to forecast energy use on infrastructure data.</li>
+          <li>Recommended more efficient resource allocation from the forecasts.</li>
+        </ul>
+      </div>
+    </article>
+    <p>More work is on <a href="https://github.com/JaswanthRajDhanduboina" target="_blank" rel="noopener">my GitHub</a>.</p>
+  </section>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="group"><h3>Querying and programming</h3><div class="chips"><span>SQL</span><span>MySQL</span><span>Python</span><span>Pandas</span><span>NumPy</span><span>Matplotlib</span><span>C</span><span>Java basics</span></div></div>
+    <div class="group"><h3>BI and visualisation</h3><div class="chips"><span>Power BI</span><span>Dashboards</span><span>BI reporting</span><span>Data visualisation</span></div></div>
+    <div class="group"><h3>Analytics</h3><div class="chips"><span>Data cleaning</span><span>EDA</span><span>Statistical analysis</span><span>ETL</span><span>KPI tracking</span><span>Trend analysis</span></div></div>
+    <div class="group"><h3>Excel and tools</h3><div class="chips"><span>Pivot tables</span><span>VLOOKUP</span><span>Data validation</span><span>MySQL Workbench</span><span>Jupyter</span><span>Git and GitHub</span><span>VS Code</span></div></div>
+  </section>
+
+  <section id="education">
+    <div class="two">
+      <div class="glass">
+        <h3>Education</h3>
+        <ul>
+          <li><strong>B.Tech, CSE (AI &amp; ML)</strong><br>NRI Institute of Technology, Agiripalli, 2022 to 2026. CGPA 8.3 / 10</li>
+          <li><strong>Intermediate (MPC)</strong><br>Sri Chaitanya Junior College, 2020 to 2022</li>
+          <li><strong>SSC</strong><br>Ravindra Bharathi Public School, 2020. CGPA 9.8 / 10</li>
+        </ul>
+      </div>
+      <div class="glass">
+        <h3>Certifications and wins</h3>
+        <ul>
+          <li><strong>Data Analytics with AI</strong>, Acaders (Aug 2026)</li>
+          <li><strong>Generative AI Certification</strong>, Codegnan (Dec 2024)</li>
+          <li><strong>1st prize</strong>, Branch Out Buzz-In (2024)</li>
+          <li><strong>1st prize</strong>, Kushagra Technical Quiz (2023)</li>
+          <li>Attended the TechGyan workshop at BITS Pilani, Hyderabad</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <h2>Let’s work with your data</h2>
+    <p>I’m looking for an entry-level or junior data analyst role and can start now.</p>
+    <div class="links">
+      <a class="btn main" href="mailto:jaswanthrajdhanduboina@gmail.com">Email me</a>
+      <a class="btn" href="https://www.linkedin.com/in/dhanduboina-jaswanth-raj-da" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn" href="https://github.com/JaswanthRajDhanduboina" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </section>
+  </main>
+  <footer>© 2026 Dhanduboina Jaswanth Raj</footer>
+</div>
+</body>
+</html>
